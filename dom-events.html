@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const App = () => {
+        const courses = [
+          {
+            id: 7,
+            title: "Ki\u1ebfn Th\u1ee9c Nh\u1eadp M\u00f4n IT",
+            slug: "lessons-for-newbie",
+            description:
+              "\u0110\u1ec3 c\u00f3 c\u00e1i nh\u00ecn t\u1ed5ng quan v\u1ec1 ng\u00e0nh IT - L\u1eadp tr\u00ecnh web c\u00e1c b\u1ea1n n\u00ean xem c\u00e1c videos t\u1ea1i kh\u00f3a n\u00e0y tr\u01b0\u1edbc nh\u00e9.",
+            image: "courses/7.png",
+            icon: "courses/7/6200b81f52d83.png",
+            video_type: "youtube",
+            video: "M62l1xA5Eu8",
+            old_price: 0,
+            price: 0,
+            pre_order_price: 0,
+            students_count: 116507,
+            is_pro: false,
+            is_coming_soon: false,
+            is_selling: false,
+            published_at: "2020-02-10T14:23:13.000000Z",
+            is_registered: false,
+            user_progress: 0,
+            last_completed_at: null,
+            image_url: "https://files.fullstack.edu.vn/f8-prod/courses/7.png",
+            icon_url:
+              "https://files.fullstack.edu.vn/f8-prod/courses/7/6200b81f52d83.png",
+            video_url: "https://www.youtube.com/watch?v=M62l1xA5Eu8",
+            landing_page_url: "/courses/lessons-for-newbie",
+            is_pre_order: false,
+            is_published: true,
+          },
+          {
+            id: 21,
+            title: "L\u1eadp tr\u00ecnh C++ c\u01a1 b\u1ea3n, n\u00e2ng cao",
+            slug: "lap-trinh-c-co-ban-toi-nang-cao",
+            description:
+              "Kh\u00f3a h\u1ecdc l\u1eadp tr\u00ecnh C++ t\u1eeb c\u01a1 b\u1ea3n t\u1edbi n\u00e2ng cao d\u00e0nh cho ng\u01b0\u1eddi m\u1edbi b\u1eaft \u0111\u1ea7u. M\u1ee5c ti\u00eau c\u1ee7a kh\u00f3a h\u1ecdc n\u00e0y nh\u1eb1m gi\u00fap c\u00e1c b\u1ea1n n\u1eafm \u0111\u01b0\u1ee3c c\u00e1c kh\u00e1i ni\u1ec7m c\u0103n c\u01a1 c\u1ee7a l\u1eadp tr\u00ecnh, gi\u00fap c\u00e1c b\u1ea1n c\u00f3 n\u1ec1n t\u1ea3ng v\u1eefng ch\u1eafc \u0111\u1ec3 chinh ph\u1ee5c con \u0111\u01b0\u1eddng tr\u1edf th\u00e0nh m\u1ed9t l\u1eadp tr\u00ecnh vi\u00ean.",
+            image: "courses/21/63e1bcbaed1dd.png",
+            icon: "courses/21/63e1bcbb2dec5.png",
+            video_type: "youtube",
+            video: "Da1tpV9TMU0",
+            old_price: 0,
+            price: 0,
+            pre_order_price: 0,
+            students_count: 16314,
+            is_pro: false,
+            is_coming_soon: false,
+            is_selling: false,
+            published_at: "2023-02-07T02:51:00.000000Z",
+            is_registered: false,
+            user_progress: 0,
+            last_completed_at: null,
+            image_url:
+              "https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbaed1dd.png",
+            icon_url:
+              "https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbb2dec5.png",
+            video_url: "https://www.youtube.com/watch?v=Da1tpV9TMU0",
+            landing_page_url: "/courses/lap-trinh-c-co-ban-toi-nang-cao",
+            is_pre_order: false,
+            is_published: true,
+          },
+        ];
+
+        const Course = ({ course }) => {
+          return (
+            <div
+              onDoubleClick={() => {
+                alert(course.title);
+              }}
+            >
+              <h2>{course.title}</h2>
+              <img src={course.image_url} alt={course.title} />
+              <p>{course.description}</p>
+            </div>
+          );
+        };
+        return (
+          <div id="wrapper">
+            {courses.map((course) => {
+              return <Course key={course.id} course={course} />;
+            })}
+          </div>
+        );
+      };
+
+      // React@18
+      const rootContainer = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootContainer);
+      // ReactDOM => renderUI
+      root.render(<App />);
+    </script>
+  </body>
+</html>

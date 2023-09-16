@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      .button {
+        background-color: white;
+        border: 1px blue solid;
+        padding: 10px 20px;
+        margin: 10px 20px;
+        color: red;
+        font-weight: 100;
+        font-family: sans-serif;
+        font-size: 14px;
+        text-decoration: none red wavy;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const App = () => {
+        const Button = ({ title, href, onClick }) => {
+          let Component = "button";
+          const props = {};
+
+          if (href) {
+            Component = "a";
+            props.href = href;
+          }
+          if (onClick) {
+            props.onClick = onClick;
+          }
+
+          return (
+            <Component onClick={onClick} {...props} className={"button"}>
+              {title}
+            </Component>
+          );
+        };
+
+        return (
+          <div id="wrapper">
+            <Button
+              title={"Button"}
+              onClick={() => console.log("---Button---")}
+            />
+            <Button
+              title={"Button"}
+              href={"fb.com"}
+              onClick={() => console.log("---A tag has href---")}
+            />
+          </div>
+        );
+      };
+
+      const rootContainer = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootContainer);
+      root.render(<App />);
+    </script>
+  </body>
+</html>

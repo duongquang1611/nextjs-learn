@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"
+    ></script>
+  </head>
+  <body>
+    <script>
+      const ulDom = document.createElement("ul");
+      ulDom.id = "ul-dom";
+      ulDom.style = "color: red; font-size: 30px";
+      ulDom.className = "ul-dom-class";
+      const liDom1 = document.createElement("li");
+      liDom1.id = "liDom1";
+      liDom1.className = "liDom1-class";
+      const liDom2 = document.createElement("li");
+      liDom1.innerText = "Quang1";
+      liDom2.innerText = "Quang2";
+
+      ulDom.appendChild(liDom1);
+      ulDom.appendChild(liDom2);
+
+      const divDom = document.createElement("div");
+      divDom.className = "post-item";
+
+      const h2Dom = document.createElement("h2");
+      h2Dom.innerText = "H2 Ne";
+      h2Dom.title = "title-h2";
+
+      const pDom = document.createElement("p");
+      pDom.innerText = "p ne";
+
+      divDom.appendChild(h2Dom);
+      divDom.appendChild(pDom);
+
+      document.body.appendChild(ulDom);
+      document.body.appendChild(divDom);
+
+      const ulReact = React.createElement(
+        "ul",
+        {
+          id: "ul-react",
+          className: "ul-react-class",
+          style: "color: red; font-size: 30px",
+        },
+        React.createElement("li", { id: "li-react1" }, "Quang3"),
+        React.createElement("li", null, "Quang4")
+      );
+      console.log("---createElement---", ulReact);
+    </script>
+  </body>
+</html>

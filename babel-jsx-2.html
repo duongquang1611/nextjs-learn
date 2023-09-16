@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const PostItem = () => {
+        return (
+          <div>
+            <label htmlFor="email-input">Email</label>
+            <input type="text" id="email-input"></input>
+          </div>
+        );
+      };
+
+      const App = () => {
+        return (
+          <div id="wrapper">
+            <PostItem />
+          </div>
+        );
+      };
+
+      // React@18
+      const rootContainer = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootContainer);
+      // ReactDOM => renderUI
+      root.render(<App />);
+    </script>
+  </body>
+</html>
